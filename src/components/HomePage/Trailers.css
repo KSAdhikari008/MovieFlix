@@ -1,0 +1,193 @@
+.parent-container{
+    margin: 20px 0px;
+    height: 350px;
+    background-color:rgb(11, 11, 94);
+    padding: 10px 90px 0px 90px;
+}
+
+.trailer-options{
+    color:white;
+    width:100%;
+    height: 50px;
+    display: flex;
+    align-items: flex-end;
+    gap: 30px;
+
+    & .heading{
+        font-size: 30px;
+    }
+
+    & .trailer-toggle-wrapper{
+        position: relative;
+        border:2px solid rgb(44, 255, 185);
+        border-radius: 30px;
+        display: flex;
+        /* wrapper needs a fix width for absolute highlighter to work */
+
+        & .highlighter{
+            position: absolute;
+            top:0;
+            left:0;
+            height: 100%;
+            background: linear-gradient(to right ,rgb(44, 255, 185),rgb(19, 137, 121));
+            border-radius: 30px;
+            transition: 0.5s ease;
+        }
+        & button{
+            background-color: inherit;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 30px;
+            padding:6px 12px;
+            border:none;
+            z-index: 1;
+            color:white;
+
+            &:hover{
+                cursor: pointer;
+            }
+            &:not(.active):hover{
+                color:rgb(224, 224, 224);
+            }
+        }
+
+        & .active{
+            color:black;
+            transition: 0.5s ease;
+        }
+    }
+}
+
+.trailer-carousel{
+    width:100%;
+    height: 290px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    overflow: auto;
+
+}
+.trailer-carousel::-webkit-scrollbar{
+    display: none;
+}
+
+.trailer-card{
+    flex: 0 0 305px;
+    aspect-ratio: 5/4;
+    display: flex;
+    flex-flow:column nowrap;
+    justify-content: space-between;
+    /* outline: 1px solid yellow; */
+}
+
+.trailer-thumbnail{
+    overflow: hidden;
+    height: 80%;
+    position: relative;
+    
+    & img{
+        height: 100%;
+        width:100%;
+        object-fit: cover;
+        object-position: center;
+        transition: 0.3s linear;
+    }
+    
+    & button{
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-50%,-50%);
+        font-size: 50px;
+        background-color: inherit;
+        color:white;
+        border:none;
+        transition: 0.3s linear;
+        text-shadow: 1px 1px 5px black ;
+    }
+
+    &:hover img{
+        cursor: pointer;
+        transform: scale(1.05);
+    }
+    
+    &:hover button{
+        cursor: pointer;
+        transform: translate(-50%,-50%) scale(1.05);
+    }
+}
+
+.trailer-details{
+    margin-top:10px;
+    color:white;
+    text-align: center;
+
+    & h3{
+        &:hover{
+            text-decoration: underline;
+            cursor: pointer;
+            color:rgb(177, 252, 227);
+        }    
+    }
+
+    p{
+        font-size:15px;
+        font-weight: 100;
+        /* width:305px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; */
+        display: -webkit-box;
+        line-clamp: 2;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+}
+
+.video-overlay{
+    position: fixed;
+    z-index: 4;
+    top: 0;
+    left: 0;        
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.326);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    & .video{
+        height: 92%;
+        aspect-ratio: 5/3;
+        background-color: rgb(82, 82, 82);
+        position: relative;
+        border: 1px solid black;
+        border-radius: 10px;
+        overflow: hidden;
+        
+        & iframe{
+            height: 100%;
+            width: 100%;
+        }
+        
+        & button{
+            
+            position: absolute;
+            top: 2%;
+            right: 1%;
+            font-size: 20px;
+            border: none;
+            background-color: transparent;
+            color:rgb(222, 220, 220);
+            text-shadow: 1px 1px 5px black;
+
+            &:hover{
+                cursor: pointer;
+            }
+
+        }
+    }
+
+}

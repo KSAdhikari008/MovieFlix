@@ -1,0 +1,223 @@
+*{
+    padding:0;
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.trending-container{
+    width:100%;
+    min-height: 350px;
+    margin:20px 0px;
+}
+.trending-options{
+    box-sizing: border-box;
+    padding: 0px 90px ;
+    height: 60px;
+    width:100%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    gap:30px;
+
+
+    & .heading{
+        color:black;
+        font-size: 30px;
+    }
+
+    & .trend-toggle-wrapper{
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border:2px solid black;
+        border-radius: 30px;
+        
+        & .btn{
+            position: absolute;
+            top:0;
+            left:0px;
+            height: 100%;
+            transition:  0.5s ease;
+            background-color: rgb(39, 39, 137);
+            border-radius: 30px;
+        }
+
+
+        & button{
+            border:none;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 30px;
+            padding:6px 12px;
+            background-color: inherit;
+            z-index: 1;
+
+            &:hover{
+                cursor: pointer;
+            }
+            &:not(.active):hover{
+                color:rgba(0, 0, 0, 0.662);
+            }
+        }
+
+        & .active{
+            background: linear-gradient(to right, rgb(240, 255, 253) ,rgb(44, 255, 185));
+            background-clip: text;
+            color:transparent;
+            transition: 0.5s ease;
+        }
+    }
+}
+
+.carousel{
+    margin:0px 65px ;
+    padding-bottom: 6px;
+    border-radius: 10px;
+    
+    display: flex;
+    align-items: flex-start;
+    flex-flow: row nowrap;
+    overflow-x: auto; /* Creates a horizontal scrolling container */
+    scroll-behavior: smooth; /* Smooth animation when scrolling via css buttons/markers */
+    anchor-name: --carousel; 
+    /* Gives this element an anchor name.The built-in scroll buttons can later position
+    themselves relative to this container using position-anchor. */
+    scroll-snap-type: x mandatory;
+    /* Enables horizontal snap points.When scrolling stops, the browser forces the scroll position
+       to snap to the nearest child that defines scroll-snap-align. */
+    scroll-marker-group: after;
+    /* parent container for the marker */
+     /* Creates a built-in marker container (pagination dots)
+       and places it after the carousel. */
+    outline: none; 
+    /* .carousel now shows an outline when focused using tab, since it has focus el (scroll and marker)  */
+}
+
+/* Styles the container that holds all generated markers */
+.carousel::scroll-marker-group{
+    /* Centers the markers and adds spacing between them */
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+}
+
+/* Every card automatically generates one marker */
+.cards::scroll-marker{
+    content: '';
+    height: 6px;
+    width: 6px;
+    background-color: rgb(164, 164, 164);
+    border-radius: 50%;
+    /* Makes each marker look like a pagination dot */
+}
+
+/* Marker representing the currently visible snap target */
+.cards::scroll-marker:target-current{
+    background-color: rgb(87, 87, 87);
+    height: 9px;
+    width: 9px;/* Slightly larger and darker to indicate active state */
+}
+
+.carousel::-webkit-scrollbar{
+    display: none;/* Hides the native horizontal scrollbar */
+}
+
+/* Styles BOTH built-in scroll buttons */
+.carousel::scroll-button(right),.carousel::scroll-button(left){
+    padding:0;
+    box-shadow: 1px 1px 3px rgb(77, 77, 77);
+    cursor: pointer;
+    content: '→';
+    font-family: Consolas;
+    height: 50px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    border:none;
+    color:rgb(108, 108, 108);
+    font-size:40px;
+    background-color: rgb(222, 222, 222);
+    position: fixed;
+    /* Allows the button to be positioned using
+       anchor positioning APIs */
+    position-anchor: --carousel;
+     /* Attach positioning calculations to the
+       carousel element declared with anchor-name */
+    position-area: center right;
+    /* Places the button on the right side of the carousel */
+}
+.carousel::scroll-button(left){
+    content: '←';
+    position-area: center left;/* Move button to the left side of the carousel */
+}
+
+.carousel::scroll-button(*):disabled{
+    /* Browser automatically disables buttons when
+   scrolling further isn't possible */
+    /* Visual feedback that the button cannot be used */
+    cursor: auto;
+    opacity: 0.1;
+}
+
+.cards{
+    scroll-snap-align:start;
+    /* Defines this card as a snap point.
+       When scrolling ends, the browser aligns
+       the card's start edge with the container. */
+    flex: 0 0 155px;
+    /* Prevent shrinking/growing.
+       Every card stays exactly 180px wide. */
+    aspect-ratio: 5/7;
+    text-align: center;
+    align-content: center;
+    border-radius: 12px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-between;
+    gap:7px;
+
+}
+
+@media(max-width: 500px){
+
+    .cards{
+        flex: 0 0 100%;
+    }
+}
+
+.cards-image{
+    width:90%;
+    aspect-ratio: 6/9;
+    border-radius: 12px;
+    overflow: hidden;
+}
+.c-image{
+    padding: 0px;
+    margin:0px;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.movie-title{
+    max-height: 40px;
+    display: -webkit-box;
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size:17px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: 600;
+}
+.release-date{
+    color:rgb(104, 104, 104);
+    font-size: 15px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: 300;
+
+}

@@ -1,0 +1,121 @@
+.header{
+    padding: 5px 20px;
+    height: 65px;
+    background-color: rgb(15, 15, 103);
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    box-sizing: border-box;
+    color:white;
+    
+}
+
+.left-section{
+    box-sizing: border-box;
+    margin: 0px 10px;
+    padding-left: 10px;
+    flex-basis: 40%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    gap: 45px;
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    color:white;
+    white-space: nowrap;
+}
+
+
+.middle-section{
+    margin: 0px 10px;
+    flex-basis: 20%;
+    height: 30px;
+    align-content: center;
+    text-align: center;
+    
+    .logo{
+        height: 30px;
+        fill: black;
+        transition: transform 0.5s ease;
+    }
+    .logo:hover{
+        transform: scale(1.05);
+        fill: grey;
+        cursor: pointer;
+    }
+}
+
+.right-section{
+    margin: 0px 10px;
+    flex-basis: 40%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 30px;
+    font: 600 14px "Poppins", sans-serif;
+    letter-spacing: 0.5px;
+}
+
+.input-field{
+    width: 200px;
+    height: 30px;
+    display: flex;
+    align-items:center;
+    gap:5px;
+    padding: 0px 10px;
+    border: none;   
+    background-color: white;
+    border-radius: 20px;
+
+    &:focus-within{
+        outline: 3px solid rgb(147, 147, 147);
+    }
+
+    .input{
+        height: 100%;
+        min-width: 10px;
+        flex:1;
+        font-size: 14px;
+        border: none;   
+        background-color: transparent;
+        
+        &:focus{
+            outline: none;
+        }
+        &::placeholder{
+            color: grey;
+            font-size: 14px;
+        }
+    }
+    
+    .search-icon{
+        fill: black;
+    }
+    .cross-icon{
+        color: black;
+        font-size: 13px;
+        stroke-width: 0.5px;
+    }
+}
+
+
+.nav-items{
+        text-decoration: none;
+        color:white;
+        transition: color 0.1s ease;
+       
+        &:hover{
+            color: rgb(113, 242, 242);
+        }
+        &.active {
+            color: rgb(163, 163, 163);
+        }
+        &:focus{
+            outline: 2px solid rgb(113, 242, 242);
+            outline-offset: 5px;
+            border-radius: 5px;
+
+        }
+}

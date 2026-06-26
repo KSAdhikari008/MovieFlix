@@ -1,0 +1,27 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+.main{
+    width: 100%;
+}
+.hero-section{
+    height: 390px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color:white;
+    align-content: center;
+    
+    h1{
+        margin:20px;
+        font: 600 50px arial;
+        text-shadow:1px 1px 10px rgba(0, 0, 0, 0.735);
+    }
+    p{
+        margin:10px 20px;
+        font-size: 22px;
+        font-family:Arial, Helvetica, sans-serif;
+        text-shadow: 2px 2px 5px black;
+    }
+}
