@@ -30,13 +30,12 @@ const [loading, setLoading] = useState(true);
 
   if(loading){
     return <main className="main">
-            <div className="hero-section" style={bannerURL && {backgroundImage: `url('')`}}>
-                
+            <div className="hero-section" style={loading && {backgroundColor:'#d0e4f1'}}>
             </div>
             <Trending/>
             <Trailers/>
         </main>
-  }
+  }else{
   
   return (
     <>
@@ -50,6 +49,7 @@ const [loading, setLoading] = useState(true);
         </main>
     </>
   );
+}
 }
 
 export default Main;
