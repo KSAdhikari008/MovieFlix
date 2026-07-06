@@ -1,4 +1,3 @@
-// do webdevsimplified react vid, then react , and then resume this project.
 import { Route, Routes } from "react-router-dom";
 import HomePage from "./components/HomePage/HomePage";
 import MoviesPage from "./components/Movies/MoviesPage";
