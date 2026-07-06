@@ -188,8 +188,23 @@
     }
 }
 
+/* moving the background through the skeleton */
+@keyframes skeletonShimmer {
+    0%{background-position: 200% }
+    100%{background-position: -200%  }
+}
+
 .skeleton{
-    background-color: rgb(196, 229, 255);
+    background: linear-gradient(
+  90deg,
+   #daebff 25%,
+   #b4ccec 50%,
+   #daebff 75%
+);
+    /* width height */
+    background-size: 200% 100%;
+    animation: skeletonShimmer 2.2s linear infinite ;
+    animation-delay: 0ms;
 }
 
 .cards-image{

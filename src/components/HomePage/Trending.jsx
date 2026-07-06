@@ -7,6 +7,10 @@ const imgUrl = import.meta.env.VITE_API_IMG_BASE_URL;
 const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 const API_KEY = import.meta.env.VITE_API_KEY;
 const ENDPOINT = 'discover/movie';
+// Array.from() creates an array from an iterable, here {length: 20}.
+// Takes a second argument to set the value of each element.
+const skeletonCards = Array.from({length: 20},(_,i)=>({id: i}));
+// slekeltonCards is now an array of 20 objects with and an id property with the index as it's value.
 
 
 function Trending() {
@@ -20,10 +24,6 @@ function Trending() {
     const btnRef2 = useRef();
     const hightlightRef = useRef();
 
-    // Array.from() creates an array from an iterable, here {length: 20}.
-    // Takes a second argument to set the value of each element.
-    const skeletonCards = Array.from({length: 20},(_,i)=>({id: i}));
-    // slekeltonCards is now an array of 20 objects with and an id property with the index as it's value.
 
     useEffect(()=>{
     
@@ -64,35 +64,6 @@ function Trending() {
         hightlightRef.current.style.width = `${btnRef2.current.offsetWidth}px`;
     }
 
-    if(loading){
-      return  <div className="trending-container">
-        <div className="trending-options">
-          <div className="heading">Trending</div>
-          <div className="trend-toggle-wrapper">
-            <div className="btn" ref={hightlightRef}></div>
-            <button className={`toggle today ${today? 'active':''}`}
-                    onClick={todayTrend}
-                    ref={btnRef1}>Today
-            </button>
-            <button className={`toggle this-week ${today? '':'active'}`}
-                    onClick={thisWeekTrend} 
-                    ref={btnRef2}>This Week
-            </button>
-          </div>
-        </div>
-        <div className="carousel">
-            {  skeletonCards.map((card)=>{
-              
-                return <div className="cards" key={card.id}>
-                    <div className="cards-image skeleton">
-                    </div>
-                    <div className="movie-title skeleton"></div>
-                    <div className="release-date skeleton"></div>
-                </div>
-            })}
-        </div>
-      </div>
-    }
 
     return (
     <>
@@ -112,7 +83,19 @@ function Trending() {
           </div>
         </div>
         <div className="carousel">
-            {movies && movies.map((movie)=>{
+            { loading 
+            
+            ?  skeletonCards.map((card)=>{
+              
+                return <div className="cards" key={card.id}>
+                    <div className="cards-image skeleton">
+                    </div>
+                    <div className="movie-title skeleton"></div>
+                    <div className="release-date skeleton"></div>
+                </div>
+            })
+            
+            : movies.map((movie)=>{
               
                 return <div className="cards" key={movie.id}>
                     <div className="cards-image">

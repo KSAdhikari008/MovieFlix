@@ -1,3 +1,6 @@
+Add error hadling on all api calls. 
+Make it so that error in response stops the loading and show error. Check the flowchart in Notes.
+
 Make Movies Page.
 
 Apply this format HomePage:-
