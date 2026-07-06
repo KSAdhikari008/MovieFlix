@@ -7,6 +7,7 @@ import axios from 'axios';
 function Main() {
  
 const [bannerURL, setBannerURL] = useState(null);
+const [loading, setLoading] = useState(true);
 
   useEffect(()=>{
   
@@ -20,11 +21,22 @@ const [bannerURL, setBannerURL] = useState(null);
       const movie = data[Math.floor(Math.random()*10)];//picking random movie from first 10 movies.
       const url = `${IMG_URL}/original${movie.backdrop_path}`;
       setBannerURL(url);
+      setLoading(false);
     }
   
     getHeroBanner();
 
   },[]);
+
+  if(loading){
+    return <main className="main">
+            <div className="hero-section" style={bannerURL && {backgroundImage: `url('')`}}>
+                
+            </div>
+            <Trending/>
+            <Trailers/>
+        </main>
+  }
   
   return (
     <>

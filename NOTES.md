@@ -32,3 +32,34 @@ with_genres=28        // Action
 with_genres=35        // Comedy
 with_original_language=ja
 primary_release_year=2025
+
+
+Loading Conceptual Flow:
+Component mounts
+        │
+        ▼
+        loading = true
+        movies = []
+        error = null
+                │
+                ▼
+        Render Spinner
+                │
+                ▼
+        Start API request
+                │
+                ▼
+        ──────── Waiting ────────
+                │
+                ▼
+        Response received
+                │
+         ───────│──────┐
+        │              │
+   Success          Failure
+        │              │
+movies=data      error=message
+loading=false    loading=false
+        │              │
+        ▼              ▼
+Render Movies     Render Error
