@@ -31,6 +31,8 @@ const [loading, setLoading] = useState(true);
   if(loading){
     return <main className="main">
             <div className="hero-section" style={loading && {backgroundColor:'#d0e4f1'}}>
+              <h1>Welcome to TMDB</h1>
+              <p>Millions of movies, TV shows and people to discover.Explore our extensive database , read reviews and stay up to date with the latest realeases.</p>
             </div>
             <Trending/>
             <Trailers/>
