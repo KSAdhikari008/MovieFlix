@@ -2,11 +2,16 @@ import './Header.css'
 import Logo from './../../assets/tmdb.svg?react'
 import {  NavLink, useNavigate } from 'react-router-dom'
 import { RxCross1 } from "react-icons/rx";
+import { useContext } from 'react';
+import { ThemeContext } from '../../ThemeContext';
 
 // add code for when user types in the search input field, then show the cross icon and when user clicks on the cross icon, then clear the input field and hide the cross icon
 // do home page after this.
 
 function Header() {
+
+   const {theme, setTheme} = useContext(ThemeContext);
+   console.log(theme);
  
   const navigate = useNavigate();
 
@@ -31,9 +36,12 @@ function Header() {
             <input type="text" className='input' placeholder="Search..." />
             {  hasInput && <RxCross1 className='cross-icon'/>}
           </div>
+          <button onClick={()=>{setTheme(prev => prev == 'light' ? 'dark' : 'light')}}
+                  className='dark-light-mode' >{theme==='light'? '☼' : '⏾'}
+          </button>
           <NavLink to='/about' className="nav-items">About</NavLink>
           <NavLink to='/contact' className="nav-items">Contact</NavLink>
-          <NavLink to='/account' className="nav-items">Account</NavLink>
+          <NavLink to='/account' className="nav-items">Profile</NavLink>
         </div>
       </nav>
     </>

@@ -8,23 +8,28 @@ import AboutPage from "./components/About/AboutPage";
 import ContactPage from "./components/Contact/ContactPage";
 import AccountPage from "./components/Account/AccountPage";
 import NotFound from "./NotFound";
+import { ThemeContext } from "./ThemeContext";
+import { useState } from "react";
 
 function App() {
- 
+
+  const [theme, setTheme] = useState('light');
  
   return (
     <>
-    <Routes>
-      <Route path="/" element={<HomePage/>} />
-      <Route path="/movies" element={<MoviesPage/>} />
-      <Route path="/tv-shows" element={<TvShowsPage/>} />
-      <Route path="/people" element={<PeoplesPage/>} />
-      <Route path="/awards" element={<AwardsPage/>} />
-      <Route path="/about" element={<AboutPage/>} />
-      <Route path="/contact" element={<ContactPage/>} />
-      <Route path="/account" element={<AccountPage/>} />
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+    <ThemeContext.Provider value={{theme, setTheme}}>
+      <Routes>
+        <Route path="/" element={<HomePage/>} />
+        <Route path="/movies" element={<MoviesPage/>} />
+        <Route path="/tv-shows" element={<TvShowsPage/>} />
+        <Route path="/people" element={<PeoplesPage/>} />
+        <Route path="/awards" element={<AwardsPage/>} />
+        <Route path="/about" element={<AboutPage/>} />
+        <Route path="/contact" element={<ContactPage/>} />
+        <Route path="/account" element={<AccountPage/>} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </ThemeContext.Provider>
     </>
   );
 }
