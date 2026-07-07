@@ -2,10 +2,18 @@
     --background:  #f4f8fb;
     --text: black;
     --headerBg: rgb(15,15,103);
+    --surface: white;
+    --trendingMHover:rgba(0, 0, 0, 0.662);
+    --trendingMHoverBg:rgb(39, 39, 137);
+    --movieDateCol:rgb(94, 94, 94);
 }
 
 .dark{
     --background: rgb(9, 9, 70);
     --text: white;
     --headerBg: rgb(9,9,70);
+    --surface: rgb(6, 6, 89);
+    --trendingMHover:rgba(246, 245, 245, 0.662);
+    --trendingMHoverBg:rgb(63, 77, 123);
+    --movieDateCol:rgb(214, 214, 214);
 }
