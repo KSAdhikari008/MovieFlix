@@ -9,11 +9,18 @@ import ContactPage from "./components/Contact/ContactPage";
 import AccountPage from "./components/Account/AccountPage";
 import NotFound from "./NotFound";
 import { ThemeContext } from "./ThemeContext";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
 
   const [theme, setTheme] = useState('light');
+
+  useEffect(()=>{
+    // Toggles css variables(in :root and .dark) for light/dark mode.
+    document.body.className = theme;
+    console.log(document.body.className)
+  
+  },[theme]);
  
   return (
     <>

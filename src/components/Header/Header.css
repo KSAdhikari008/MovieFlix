@@ -1,12 +1,12 @@
 .header{
     padding: 5px 20px;
     height: 65px;
-    background-color: rgb(15, 15, 103);
+    background-color: var(--headerBg);
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
     box-sizing: border-box;
-    color:white;
+    color: var(--text);
     
 }
 
@@ -97,6 +97,20 @@
         color: black;
         font-size: 13px;
         stroke-width: 0.5px;
+    }
+}
+
+.dark-light-mode{
+    background-color: rgb(15, 15, 103);
+    height: 35px;
+    width: 35px;
+    font-size: 20px;
+    border:2px solid rgb(80, 80, 251);
+    border-radius: 50%;
+    color: white;
+
+    &:hover{
+        cursor: pointer;
     }
 }
 

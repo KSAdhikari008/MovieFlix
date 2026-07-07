@@ -11,7 +11,6 @@ import { ThemeContext } from '../../ThemeContext';
 function Header() {
 
    const {theme, setTheme} = useContext(ThemeContext);
-   console.log(theme);
  
   const navigate = useNavigate();
 
@@ -37,7 +36,7 @@ function Header() {
             {  hasInput && <RxCross1 className='cross-icon'/>}
           </div>
           <button onClick={()=>{setTheme(prev => prev == 'light' ? 'dark' : 'light')}}
-                  className='dark-light-mode' >{theme==='light'? '☼' : '⏾'}
+                  className='dark-light-mode' >{theme==='light'? '⏾' : '☼'}
           </button>
           <NavLink to='/about' className="nav-items">About</NavLink>
           <NavLink to='/contact' className="nav-items">Contact</NavLink>

@@ -1,0 +1,11 @@
+.light{
+    --background:  #f4f8fb;
+    --text: black;
+    --headerBg: rgb(15,15,103);
+}
+
+.dark{
+    --background: rgb(9, 9, 70);
+    --text: white;
+    --headerBg: rgb(9,9,70);
+}
