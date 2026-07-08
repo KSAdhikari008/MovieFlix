@@ -3,7 +3,7 @@ import Logo from './../../assets/tmdb.svg?react'
 import {  NavLink, useNavigate } from 'react-router-dom'
 import { RxCross1 } from "react-icons/rx";
 import { useContext } from 'react';
-import { ThemeContext } from '../../ThemeContext';
+import { ThemeContext } from '../../contexts/ThemeContext';
 
 // add code for when user types in the search input field, then show the cross icon and when user clicks on the cross icon, then clear the input field and hide the cross icon
 // do home page after this.
@@ -24,7 +24,7 @@ function Header() {
           <NavLink to='/movies' className="nav-items" >Movies</NavLink>
           <NavLink to='/tv-shows' className="nav-items">TV Shows</NavLink>
           <NavLink to='/people' className="nav-items">People</NavLink>
-          <NavLink to='/awards' className="nav-items">Awards</NavLink>
+          <NavLink to='/watchlist' className="nav-items">Watchlist</NavLink>
         </div>
         <div className="middle-section">
           <Logo className='logo' onClick={() => {navigate('/');}}/>

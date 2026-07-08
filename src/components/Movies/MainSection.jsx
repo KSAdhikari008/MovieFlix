@@ -1,7 +1,10 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import styles from "./MainSection.module.css";
 import axios from "axios";
 import dayjs from "dayjs";
+import { IoAdd } from "react-icons/io5";
+import { WatchlistContext } from "../../contexts/WatchlistContext";
+import Watchlist from "../Watchlist/Watchlist";
 
 const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 const API_KEY = import.meta.env.VITE_API_KEY;
@@ -13,6 +16,7 @@ function MainSection() {
   const [Movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const {watchlist, setWatchlist} = useContext(WatchlistContext);
 
   useEffect(()=>{
 
@@ -35,7 +39,6 @@ function MainSection() {
       )
       
       const DATA = response.data.results;
-      console.log(DATA);
 
       setMovies(DATA);
       setLoading(false);
@@ -46,6 +49,12 @@ function MainSection() {
   
   },[]);
 
+  function addToWatchlist(movie){
+    setWatchlist(movie);
+    console.log(watchlist);
+    
+  }
+
   return (
     <div className={styles.main}>
       <h1 className={styles['page-title']}>Top Rated Movies</h1>
@@ -54,6 +63,7 @@ function MainSection() {
           ? "loading"
           : Movies.map((m) => (
               <div className={styles["movie-card"]} key={m.id}>
+                <button className={styles.addToWatchlist} onClick={()=>{addToWatchlist(m)}}><IoAdd/></button>
                 <div className={styles.poster}>
                   <img
                     src={`${IMAGE_URL_PATH}/w500/${m.poster_path}`}

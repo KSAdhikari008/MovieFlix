@@ -31,6 +31,32 @@
     gap: 0.7rem;
     border-radius: 10px;
     overflow: hidden;
+    position: relative;
+}
+
+.addToWatchlist{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:white;
+    height: 2.8rem;
+    width: 2.3rem;
+    font-size: 2rem;
+    background-color: rgba(0, 0, 0, 0.329);
+    backdrop-filter: blur(10px);
+    /* border: 1px solid grey; */
+    border: none;
+    border-bottom-left-radius: 5px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.558);
+    
+    &:hover{
+        cursor: pointer;
+        font-size: 2.2rem;
+        box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.858);
+    }
 }
 
 .poster{
