@@ -6,6 +6,7 @@
     --trendingMHover:rgba(0, 0, 0, 0.662);
     --trendingMHoverBg:rgb(39, 39, 137);
     --movieDateCol:rgb(94, 94, 94);
+    --moviesPageCardTitle:  rgb(51, 51, 51);
 }
 
 .dark{
@@ -16,4 +17,5 @@
     --trendingMHover:rgba(246, 245, 245, 0.662);
     --trendingMHoverBg:rgb(63, 77, 123);
     --movieDateCol:rgb(214, 214, 214);
+    --moviesPageCardTitle:  white;
 }

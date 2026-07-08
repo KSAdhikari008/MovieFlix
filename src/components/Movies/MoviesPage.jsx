@@ -1,4 +1,5 @@
 import Header from "../Header/Header";
+import MainSection from "./MainSection";
 
 function MoviesPage() {
  
@@ -6,6 +7,7 @@ function MoviesPage() {
   return (
     <>
       <Header/>
+      <MainSection/>
     </>
   );
 }

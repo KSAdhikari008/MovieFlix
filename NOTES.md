@@ -13,6 +13,7 @@ For most React movie apps:
 * Use `w500` for posters.
 * Use `original` or `w780` for backdrops/banners.
 
+Base URL - https://api.themoviedb.org/3
 Image url path - https://image.tmdb.org/t/p/{image_size}/{poster_path.etc}
 For more info - https://developer.themoviedb.org/docs/image-basics?utm_source=chatgpt.com
 
@@ -63,3 +64,6 @@ loading=false    loading=false
         │              │
         ▼              ▼
 Render Movies     Render Error
+
+
+Use css module.
