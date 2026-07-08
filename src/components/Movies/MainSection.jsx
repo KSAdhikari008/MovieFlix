@@ -3,7 +3,6 @@ import styles from "./MainSection.module.css";
 import axios from "axios";
 import dayjs from "dayjs";
 
-// const Movies = Array.from({length: 40}, (_,i)=> ({id: i}));
 const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 const API_KEY = import.meta.env.VITE_API_KEY;
 const IMAGE_URL_PATH = import.meta.env.VITE_API_IMG_BASE_URL;
