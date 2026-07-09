@@ -15,9 +15,17 @@ import { WatchlistContext } from "./contexts/WatchlistContext";
 function App() {
 
   const [theme, setTheme] = useState('light');
+  // lazy initializer, initializer function ,runs only once, when the component first mounts.
   const [watchlist, setWatchlist] = useState(()=>{
-    return JSON.parse(localStorage.getItem('MovieFlix-watchlist') || "[]");
+    return JSON.parse(localStorage.getItem('MovieFlix-watchlist') || "[]"); 
+    /* JSON.parse() expects its first argument to be a string. If you pass something else, JavaScript automatically converts it to a string.
+     JSON.parse([]) -> JSON.parse("") . Behind the scene String([]) -> "".
+      An empty string is not valid JSON, so the parser reaches the end of the input immediately and throws:
+      Unexpected end of JSON input */
   });
+  /* useState(JSON.parse(localStorage.getItem("MovieFlix-watchlist") || "[]"));
+   Runs on every render (JSON.parse() , (a js function call) is evaluated every time) */
+
 
   useEffect(()=>{
     // Toggles css variables(in :root and .dark) for light/dark mode.
