@@ -16,7 +16,7 @@ function App() {
 
   const [theme, setTheme] = useState('light');
   const [watchlist, setWatchlist] = useState(()=>{
-    return JSON.parse(localStorage.getItem('MovieFlix-watchlist') || []);
+    return JSON.parse(localStorage.getItem('MovieFlix-watchlist') || "[]");
   });
 
   useEffect(()=>{
