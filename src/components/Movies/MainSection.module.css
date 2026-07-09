@@ -59,6 +59,11 @@
     }
 }
 
+.addToWatchlist.added{
+    background-color: rgb(239, 211, 28);
+    color: black;
+}
+
 .poster{
     height: 80%;
     width: 100%;
