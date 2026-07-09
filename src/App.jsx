@@ -15,12 +15,13 @@ import { WatchlistContext } from "./contexts/WatchlistContext";
 function App() {
 
   const [theme, setTheme] = useState('light');
-  const [watchlist, setWatchlist] = useState([]);
+  const [watchlist, setWatchlist] = useState(()=>{
+    return JSON.parse(localStorage.getItem('MovieFlix-watchlist') || []);
+  });
 
   useEffect(()=>{
     // Toggles css variables(in :root and .dark) for light/dark mode.
     document.body.className = theme;
-  
   },[theme]);
  
   return (
